@@ -1,0 +1,9 @@
+{
+  "name": "ignite-rentalx",
+  "version": "1.0.0",
+  "description": "API Restfull with Node.js, PostgreSQL, TypeORM e Docker ",
+  "main": "index.js",
+  "repository": "https://github.com/ludico1959/ignite-rentalx",
+  "author": "Lucas Dias Coelho",
+  "license": "MIT"
+}
