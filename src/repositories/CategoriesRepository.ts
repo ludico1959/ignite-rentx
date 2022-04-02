@@ -1,12 +1,7 @@
 import { Category } from '../model/Category';
+import { ICategoriesRepository, ICreateCategoryDTO } from './ICategoriesRepository';
 
-// DTO - Data Transfer Object
-interface ICreateCategoryDTO {
-  name: string;
-  description: string;
-}
-
-class CategoriesRepository {
+class CategoriesRepository implements ICategoriesRepository {
   // banco de dados falso
   private categories: Category[];
 
