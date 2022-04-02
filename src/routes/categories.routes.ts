@@ -1,26 +1,24 @@
 import { randomUUID } from 'crypto';
 import { Router } from 'express';
 import { Category } from '../model/Category';
+import { CategoriesRepository } from '../repositories/CategoriesRepository';
 
 const categoriesRoutes = Router();
 
-// banco de dados falso
-const categories: Category[] = [];
+const categoriesRepository = new CategoriesRepository();
 
 categoriesRoutes.post('/', (request, response) => {
-  const { name, description } = request.body;
+  categoriesRepository.create(request.body);
 
-  const category = new Category();
+  return response.status(201).send();
+});
 
-  Object.assign(category, {
-    name,
-    description,
-    created_at: new Date()
+categoriesRoutes.get('/', (request, response) => {
+  const result = categoriesRepository.list();
+
+  return response.status(200).json({
+    result
   });
-
-  categories.push(category);
-
-  return response.status(201).json({ category });
 });
 
 export { categoriesRoutes };
