@@ -4,9 +4,19 @@ import { ICategoriesRepository, ICreateCategoryDTO } from './ICategoriesReposito
 class CategoriesRepository implements ICategoriesRepository {
   // banco de dados falso
   private categories: Category[];
+  // Padrão Singleton
+  private static INSTANCE: CategoriesRepository;
 
-  constructor() {
+  private constructor() {
     this.categories = [];
+  }
+
+  public static getInstance(): CategoriesRepository {
+    if (!CategoriesRepository.INSTANCE) {
+      CategoriesRepository.INSTANCE = new CategoriesRepository();
+    }
+
+    return CategoriesRepository.INSTANCE;
   }
 
   create({ description, name }: ICreateCategoryDTO): void {
