@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { parse } from 'csv-parse';
+import csvParse from 'csv-parse';
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
 
 interface IImportCategory {
@@ -19,7 +19,7 @@ class ImportCategoryService {
       const stream = fs.createReadStream(file.path);
       const categories: IImportCategory[] = [];
 
-      const parseFile = parse();
+      const parseFile = csvParse.parse();
 
       stream.pipe(parseFile);
 

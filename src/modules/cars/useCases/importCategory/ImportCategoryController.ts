@@ -8,7 +8,7 @@ class ImportCategoryController {
     this.importCategoryService = importCategoryService;
   }
 
-  handle(request: Request, response: Response) {
+  handle(request: Request, response: Response): Response {
     const { file } = request;
 
     this.importCategoryService.execute(file);
