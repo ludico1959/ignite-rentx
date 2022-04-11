@@ -1,9 +1,9 @@
 {
-  "name": "ignite-rentalx",
+  "name": "rentx",
   "version": "1.0.0",
   "description": "API Restfull with Node.js, PostgreSQL, TypeORM e Docker ",
   "main": "src/server.ts",
-  "repository": "https://github.com/ludico1959/ignite-rentalx",
+  "repository": "https://github.com/ludico1959/ignite-rentx",
   "author": "Lucas Dias Coelho",
   "license": "MIT",
   "scripts": {
@@ -30,6 +30,9 @@
     "csv-parse": "^5.0.4",
     "express": "^4.17.3",
     "multer": "^1.4.4",
-    "swagger-ui-express": "^4.3.0"
+    "pg": "^8.7.3",
+    "reflect-metadata": "^0.1.13",
+    "swagger-ui-express": "^4.3.0",
+    "typeorm": "^0.3.5"
   }
 }
