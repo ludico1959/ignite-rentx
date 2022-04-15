@@ -1,23 +1,22 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 import { randomUUID } from 'crypto';
 
-@Entity()
+@Entity('categories')
 export class Category {
   constructor() {
     if (!this.id) this.id = randomUUID();
   }
 
   @PrimaryColumn()
+  @Column('id')
   id: string;
 
-  @Column({
-    length: 100
-  })
+  @Column('name')
   name: string;
 
-  @Column('text')
+  @Column('description')
   description: string;
 
-  @Column()
+  @CreateDateColumn('created_at')
   created_at: Date;
 }
