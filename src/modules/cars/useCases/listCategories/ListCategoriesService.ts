@@ -1,4 +1,4 @@
-import { Category } from '../../model/Category';
+import { Category } from '../../entities/Category';
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
 
 class ListCategoriesService {
@@ -8,11 +8,11 @@ class ListCategoriesService {
     this.categoriesRepository = categoriesRepository;
   }
 
-  execute(): Category[] {
-    const categories = this.categoriesRepository.list();
+  // execute(): Category[] {
+  //   const categories = this.categoriesRepository.list();
 
-    return categories;
-  }
+  //   return categories;
+  // }
 }
 
 export { ListCategoriesService };

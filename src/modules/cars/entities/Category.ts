@@ -8,15 +8,14 @@ export class Category {
   }
 
   @PrimaryColumn()
-  @Column('id')
   id: string;
 
-  @Column('name')
+  @Column()
   name: string;
 
-  @Column('description')
+  @Column()
   description: string;
 
-  @CreateDateColumn('created_at')
+  @CreateDateColumn()
   created_at: Date;
 }
