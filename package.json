@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli -d src/database/index.ts",
+    "tsc": "ts-node-dev ./node_modules/typescript/bin/tsc"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",

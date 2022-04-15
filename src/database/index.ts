@@ -23,3 +23,5 @@ AppDataSource.initialize()
     console.log('🟢 Database connected...');
   })
   .catch((error) => console.log(error));
+
+export default AppDataSource;
