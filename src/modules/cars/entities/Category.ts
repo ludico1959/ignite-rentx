@@ -3,12 +3,8 @@ import { randomUUID } from 'crypto';
 
 @Entity('categories')
 export class Category {
-  constructor() {
-    if (!this.id) this.id = randomUUID();
-  }
-
   @PrimaryColumn()
-  id: string;
+  id?: string;
 
   @Column()
   name: string;
@@ -18,4 +14,8 @@ export class Category {
 
   @CreateDateColumn()
   created_at: Date;
+
+  constructor() {
+    if (!this.id) this.id = randomUUID();
+  }
 }

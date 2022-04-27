@@ -1,0 +1,2 @@
+REPOSITORIO
+  - faz todo acesso ao banco de dados, manipulando ou buscando dados

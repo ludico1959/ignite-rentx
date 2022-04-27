@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { Category } from '../modules/cars/entities/Category';
 
-const AppDataSource: DataSource = new DataSource({
+const AppDataSource = new DataSource({
   type: 'postgres',
   host: 'localhost',
   port: 5432,
@@ -17,7 +17,7 @@ const AppDataSource: DataSource = new DataSource({
 
 // to initialize initial connection with the database, register all entities
 // and "synchronize" database schema, call "initialize()" method of a newly created database
-// once in your application bootstrap
+// once in, your application bootstrap
 AppDataSource.initialize()
   .then(() => {
     console.log('🟢 Database connected...');

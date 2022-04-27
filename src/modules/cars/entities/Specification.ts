@@ -3,10 +3,6 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Specification {
-  constructor() {
-    if (!this.id) this.id = randomUUID();
-  }
-
   @PrimaryColumn()
   id?: string;
 
@@ -20,4 +16,8 @@ export class Specification {
 
   @Column()
   created_at: Date;
+
+  constructor() {
+    if (!this.id) this.id = randomUUID();
+  }
 }
