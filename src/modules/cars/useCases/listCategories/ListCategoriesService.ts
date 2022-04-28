@@ -8,11 +8,11 @@ class ListCategoriesService {
     this.categoriesRepository = categoriesRepository;
   }
 
-  // execute(): Category[] {
-  //   const categories = this.categoriesRepository.list();
+  async execute(): Promise<Category[]> {
+    const categories = await this.categoriesRepository.list();
 
-  //   return categories;
-  // }
+    return categories;
+  }
 }
 
 export { ListCategoriesService };

@@ -1,9 +1,4 @@
-import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
-
-interface IRequest {
-  name: string;
-  description: string;
-}
+import { ICategoriesRepository, ICreateCategoryDTO } from '../../repositories/ICategoriesRepository';
 
 class CreateCategoryService {
   private categoriesRepository: ICategoriesRepository;
@@ -12,7 +7,7 @@ class CreateCategoryService {
     this.categoriesRepository = categoriesRepository;
   }
 
-  async execute({ name, description }: IRequest): Promise<void> {
+  async execute({ name, description }: ICreateCategoryDTO): Promise<void> {
     const categoryAlreadyExists = await this.categoriesRepository.findByName(name);
 
     if (categoryAlreadyExists) throw new Error('Category already exists!');
