@@ -4,10 +4,10 @@ services:
   database_ignite:
     image: postgres:latest
     container_name: database_ignite
-    restart: always
+    restart: always # o conatiner restarta toda vez que for parado
     ports:
       - 5432:5432
-    environment:
+    environment: # atribui valores às varáveis de ambiente que já existem na imagem do postgres no docker hub
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=ignite
       - POSTGRES_DB=rentx
@@ -15,13 +15,22 @@ services:
       - pgdata:/data/posgres
 
   # app:
-  #   build: .
+  #   build: .                  # o ponto indica o diretório local
   #   container_name: rentx
   #   ports:
   #     - 3333:3333
   #   volumes:
-  #     - .:/usr/app
+  #     - .:/usr/app            # pega as informações do diretório e joga dentro de /usr/app
 
 volumes:
   pgdata:
     driver: local
+########
+# comandos docker-compose:
+# subir os containers: docker-compose up
+# subir os containers por baixo dos panos: docker-compose up
+# derrubar/remover os containers: docker-compose down
+# derrubar/remover os containers e volumes: docker-compose down -v
+# iniciar os containers: docker-compose start
+# parar os containers: docker-compose stop
+########

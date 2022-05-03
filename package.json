@@ -7,7 +7,7 @@
   "author": "Lucas Dias Coelho",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --trace-warnings --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "start:dev": "ts-node-dev --trace-warnings --transpile-only --ignore-watch node_modules --respawn src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli -d src/database/index.ts",
     "tsc": "ts-node-dev ./node_modules/typescript/bin/tsc"
   },

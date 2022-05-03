@@ -16,17 +16,22 @@ class ImportCategoryService {
 
   loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
-      const stream = fs.createReadStream(file.path);
+      const readbleStream = fs.createReadStream(file.path);
       const categories: IImportCategory[] = [];
 
-      const parseFile = csvParse.parse();
+      // converte um texto de arquivo CSV em um array ou objeto
+      const parseFile = csvParse.parse({
+        delimiter: ','
+      });
 
-      stream.pipe(parseFile);
+      // o pipe transforma o readble stream em writeble stream
+      // explicação na imagem pipe-explanation
+      readbleStream.pipe(parseFile);
 
       parseFile
-        .on('data', async (line) => {
-          // ["name", "description"]
-          const [name, description] = line;
+        .on('data', async (csvLine) => {
+          // a função retorna uma linha nesse formato  ["SUV", "Utilitário Esportivo"]
+          const [name, description] = csvLine;
 
           categories.push({
             name,
@@ -34,7 +39,9 @@ class ImportCategoryService {
           });
         })
         .on('end', () => {
-          resolve(categories);
+          fs.promises.unlink(file.path); // remove o arquivo da pasta tmp
+
+          resolve(categories); // aguarda a finalização da promise e coloca o array categories no resolve
         })
         .on('error', (error) => {
           reject(error);
@@ -45,17 +52,18 @@ class ImportCategoryService {
   async execute(file: Express.Multer.File): Promise<void> {
     const categories = await this.loadCategories(file);
 
+    // checagem se o nome da categoria já existe
     categories.map(async (category) => {
       const { name, description } = category;
 
-      const categoryAlreadyExist = this.categoriesRepository.findByName(name);
+      const categoryAlreadyExist = await this.categoriesRepository.findByName(name);
 
-      if (!categoryAlreadyExist) {
-        this.categoriesRepository.create({
-          name,
-          description
-        });
-      }
+      if (categoryAlreadyExist) throw new Error('Category name already exists!');
+
+      await this.categoriesRepository.create({
+        name,
+        description
+      });
     });
   }
 }

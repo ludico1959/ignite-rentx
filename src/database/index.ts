@@ -15,9 +15,7 @@ const AppDataSource = new DataSource({
   migrations: ['src/database/migrations/*.ts']
 });
 
-// to initialize initial connection with the database, register all entities
-// and "synchronize" database schema, call "initialize()" method of a newly created database
-// once in, your application bootstrap
+// inicia a conexão com o banco de dados
 AppDataSource.initialize()
   .then(() => {
     console.log('🟢 Database connected...');

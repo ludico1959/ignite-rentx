@@ -1,1 +1,2 @@
+# pastas e arquivos que não serão repassados para o container da aplicação
 node_modules
