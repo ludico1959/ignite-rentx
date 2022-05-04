@@ -1,19 +1,24 @@
-import { CategoriesRepository } from '../../repositories/implementations/CategoriesRepository';
-import { CreateCategoryController } from './CreateCategoryController';
-import { CreateCategoryService } from './CreateCategoryService';
+/**
+ * As injeções de dependência através do módulo TSyringe
+ * tornou o uso deste index desnecessário.
+ */
+
+// import { CategoriesRepository } from '../../repositories/implementations/CategoriesRepository';
+// import { CreateCategoryController } from './CreateCategoryController';
+// import { CreateCategoryService } from './CreateCategoryService';
 
 /* Diferente do código comentado abaixo, o export default () a seguir só irá instanciar os
  * os objetos categoriesRepository, createCategoryService e createCategoryController
  * quando a função createCategoryController for chamada na rota de categorias.
  * Assim, não há perigo de os objetos serem instaciados antes de haver uma conexão com o banco de dados.
  */
-export default (): CreateCategoryController => {
-  const categoriesRepository = new CategoriesRepository();
-  const createCategoryService = new CreateCategoryService(categoriesRepository);
-  const createCategoryController = new CreateCategoryController(createCategoryService);
+// export default (): CreateCategoryController => {
+//   const categoriesRepository = new CategoriesRepository();
+//   const createCategoryService = new CreateCategoryService(categoriesRepository);
+//   const createCategoryController = new CreateCategoryController(createCategoryService);
 
-  return createCategoryController;
-};
+//   return createCategoryController;
+// };
 
 // o código abaixo instancia os objetos quando a aplicação inicia:
 // const categoriesRepository = new CategoriesRepository();
