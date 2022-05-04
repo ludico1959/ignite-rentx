@@ -33,3 +33,7 @@ export class CreateCategories1649989531940 implements MigrationInterface {
     await queryRunner.dropTable('categories');
   }
 }
+
+/* criar (a mão) migrations no TypeORM v0.3.5
+ * yarn typeorm migration:create ./src/database/migrations/testMigration
+ */
