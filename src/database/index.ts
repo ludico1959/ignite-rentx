@@ -1,4 +1,4 @@
-import 'reflect-metadata';
+import 'reflect-metadata'; // permite usar alguns decorators no typescript
 import { DataSource } from 'typeorm';
 import { Category } from '../modules/cars/entities/Category';
 
