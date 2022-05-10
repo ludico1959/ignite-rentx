@@ -1,5 +1,7 @@
 import fs from 'fs';
 import csvParse from 'csv-parse';
+import { inject, injectable } from 'tsyringe';
+
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
 
 interface IImportCategory {
@@ -7,12 +9,12 @@ interface IImportCategory {
   description: string;
 }
 
+@injectable()
 class ImportCategoryService {
-  private categoriesRepository: ICategoriesRepository;
-
-  constructor(categoriesRepository: ICategoriesRepository) {
-    this.categoriesRepository = categoriesRepository;
-  }
+  constructor(
+    @inject('CategoriesRepository')
+    private categoriesRepository: ICategoriesRepository
+  ) {}
 
   loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
@@ -20,9 +22,7 @@ class ImportCategoryService {
       const categories: IImportCategory[] = [];
 
       // converte um texto de arquivo CSV em um array ou objeto
-      const parseFile = csvParse.parse({
-        delimiter: ','
-      });
+      const parseFile = csvParse();
 
       // o pipe transforma o readble stream em writeble stream
       // explicação na imagem pipe-explanation

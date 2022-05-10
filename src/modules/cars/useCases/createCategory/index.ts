@@ -1,6 +1,5 @@
 /**
- * As injeções de dependência através do módulo TSyringe
- * tornou o uso deste index desnecessário.
+ * As injeções de dependência através do módulo TSyringe tornou o uso deste index desnecessário.
  */
 
 // import { CategoriesRepository } from '../../repositories/implementations/CategoriesRepository';

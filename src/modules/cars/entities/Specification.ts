@@ -1,7 +1,7 @@
 import { randomUUID } from 'crypto';
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity()
+@Entity('specifications')
 export class Specification {
   @PrimaryColumn()
   id?: string;
@@ -11,10 +11,10 @@ export class Specification {
   })
   name: string;
 
-  @Column('text')
+  @Column()
   description: string;
 
-  @Column()
+  @CreateDateColumn()
   created_at: Date;
 
   constructor() {
