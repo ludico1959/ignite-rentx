@@ -12,30 +12,30 @@
     "tsc": "ts-node-dev ./node_modules/typescript/bin/tsc"
   },
   "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/multer": "^1.4.7",
-    "@types/swagger-ui-express": "^4.1.3",
-    "@typescript-eslint/eslint-plugin": "^5.17.0",
-    "@typescript-eslint/parser": "^5.17.0",
-    "eslint": "^7.32.0",
-    "eslint-config": "^0.3.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-import-resolver-typescript": "^2.7.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-import-helpers": "^1.2.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.6.1",
-    "ts-node-dev": "^1.1.8",
-    "typescript": "^4.6.3"
+    "@types/express": "4.17.13",
+    "@types/multer": "1.4.7",
+    "@types/swagger-ui-express": "4.1.3",
+    "@typescript-eslint/eslint-plugin": "5.17.0",
+    "@typescript-eslint/parser": "5.17.0",
+    "eslint": "7.32.0",
+    "eslint-config": "0.3.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-import-resolver-typescript": "2.7.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-import-helpers": "1.2.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "prettier": "2.6.1",
+    "ts-node-dev": "1.1.8",
+    "typescript": "4.6.3"
   },
   "dependencies": {
-    "csv-parse": "^5.0.4",
-    "express": "^4.17.3",
-    "multer": "^1.4.4",
-    "pg": "^8.7.3",
-    "reflect-metadata": "^0.1.13",
-    "swagger-ui-express": "^4.3.0",
-    "tsyringe": "^4.6.0",
-    "typeorm": "^0.3.5"
+    "csv-parse": "4.15.3",
+    "express": "4.17.3",
+    "multer": "1.4.4",
+    "pg": "8.7.3",
+    "reflect-metadata": "0.1.13",
+    "swagger-ui-express": "4.3.0",
+    "tsyringe": "4.6.0",
+    "typeorm": "0.3.5"
   }
 }
