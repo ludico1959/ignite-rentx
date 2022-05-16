@@ -1,2 +1,15 @@
 REPOSITORIO
   - faz todo acesso ao banco de dados, manipulando ou buscando dados
+
+CRIAÇÃO DE UMA ROTA:
+1. Criar a tabela com o migration:create <path> (OPCIONAL 1)
+2. Criar pasta de entidades (entitites)
+3. Crirar entidades com os decorators do TypeORM
+4. Gerar a tabela a com o migration:generate <path> (OPCIONAL 2)
+5. Criar a pasta de repositório (repositories)
+6. Criar as interfaces do repositório (dentro de repositories) 
+7. Criar os dto's (dentro da pasta usuário, carros, contas, etc)
+8. Criar a pasta de implementations dentro de repositories
+9. Criar a implementation (o repositório em si)
+10. Crirar a pasta de useCase e, dentro dela, as pastas de Controller e Service(ou UseCase)
+11. Criar o Service/UseCase com o método nomeado de execute()

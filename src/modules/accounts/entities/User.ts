@@ -1,18 +1,28 @@
 import { randomUUID } from 'crypto';
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity('specifications')
-export class Specification {
+@Entity('users')
+class User {
   @PrimaryColumn()
-  id?: string;
+  id: string;
 
-  @Column({
-    length: 100
-  })
+  @Column()
   name: string;
 
   @Column()
-  description: string;
+  username: string;
+
+  @Column()
+  email: string;
+
+  @Column()
+  password: string;
+
+  @Column()
+  driver_license: string;
+
+  @Column()
+  isAdmin: boolean;
 
   @CreateDateColumn()
   created_at: Date;
@@ -23,3 +33,5 @@ export class Specification {
     }
   }
 }
+
+export { User };

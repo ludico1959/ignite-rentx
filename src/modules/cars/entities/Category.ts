@@ -16,6 +16,8 @@ export class Category {
   created_at: Date;
 
   constructor() {
-    if (!this.id) this.id = randomUUID();
+    if (!this.id) {
+      this.id = randomUUID();
+    }
   }
 }
