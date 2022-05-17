@@ -5,17 +5,16 @@ import { IUsersRepository } from '../IUsersRepository';
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
 import { User } from '../../entities/User';
 
-class UserRepository implements IUsersRepository {
+class UsersRepository implements IUsersRepository {
   private repository: Repository<User>;
 
   constructor() {
     this.repository = AppDataSource.getRepository(User);
   }
 
-  async create({ name, username, password, email, driver_license }: ICreateUserDTO): Promise<void> {
+  async create({ name, password, email, driver_license }: ICreateUserDTO): Promise<void> {
     const user = this.repository.create({
       name,
-      username,
       password,
       email,
       driver_license
@@ -25,4 +24,4 @@ class UserRepository implements IUsersRepository {
   }
 }
 
-export { UserRepository };
+export { UsersRepository };

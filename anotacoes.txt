@@ -13,3 +13,5 @@ CRIAÇÃO DE UMA ROTA:
 9. Criar a implementation (o repositório em si)
 10. Crirar a pasta de useCase e, dentro dela, as pastas de Controller e Service(ou UseCase)
 11. Criar o Service/UseCase com o método nomeado de execute()
+12. Criar o Controller com o método nomeado de handle()
+13. Criar a rota no user.routes.ts e depois no index.ts

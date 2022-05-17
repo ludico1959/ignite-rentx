@@ -2,15 +2,12 @@ import { randomUUID } from 'crypto';
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity('users')
-class User {
+export class User {
   @PrimaryColumn()
-  id: string;
+  id?: string;
 
   @Column()
   name: string;
-
-  @Column()
-  username: string;
 
   @Column()
   email: string;
@@ -33,5 +30,3 @@ class User {
     }
   }
 }
-
-export { User };
