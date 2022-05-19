@@ -3,6 +3,7 @@ import csvParse from 'csv-parse';
 import { inject, injectable } from 'tsyringe';
 
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
+import { AppError } from '../../../../errors/AppError';
 
 interface IImportCategory {
   name: string;
@@ -58,7 +59,7 @@ class ImportCategoryService {
 
       const categoryAlreadyExist = await this.categoriesRepository.findByName(name);
 
-      if (categoryAlreadyExist) throw new Error('Category name already exists!');
+      if (categoryAlreadyExist) throw new AppError('Category name already exists!');
 
       await this.categoriesRepository.create({
         name,
