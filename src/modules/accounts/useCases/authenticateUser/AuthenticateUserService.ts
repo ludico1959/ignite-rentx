@@ -29,15 +29,15 @@ class AuthenticateUserService {
     // checar se o usuário existe
     const user = await this.usersRepository.findByEmail(email);
 
-    // checar se a senha está correta
     if (!user) throw new AppError('Email or password incorrect');
 
     // checar se a senha está correta
-    const passwordMatch = await compare(password, user.password);
+    const passwordMatch = await compare(password, user.password); // compara a password com a passwordHash
 
     if (!passwordMatch) throw new AppError('Email or password incorrect');
 
-    // se a senha estiver correta, gerar o JWT
+    // se a senha estiver correta, gerar o JSON Web Token (JWT)
+    // o secretOrPrivateKey é um md5 gerado aqui: https://www.md5hashgenerator.com/
     const token = sign({}, 'eeec5f486a46e1aa2e33142d5122724d', {
       subject: user.id,
       expiresIn: '1d'

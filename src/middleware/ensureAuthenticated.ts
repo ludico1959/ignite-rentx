@@ -12,7 +12,7 @@ export async function ensureAuthenticated(request: Request, response: Response, 
   // informações que veem pelo header
   const authHeader = request.headers.authorization;
 
-  if (authHeader === 'Bearer') {
+  if (!authHeader || authHeader === 'Bearer') {
     throw new AppError('Token missing', 401);
   }
 
